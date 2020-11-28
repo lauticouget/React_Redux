@@ -1,6 +1,7 @@
 import React from "react";
 import Result from "./components/Result";
 import Button from "./components/Button";
+import MathOperations from "./components/MathOperations";
 import "./App.css";
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
         <button>/</button>
         <button>=</button>
       </div>
+      <MathOperations />
     </main>
   );
 };
