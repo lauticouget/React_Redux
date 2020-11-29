@@ -8,7 +8,7 @@ const Button = ({ type, text, clickHandler }) => (
 );
 
 Button.propTypes = {
-  tpye: PropTypes.string,
+  type: PropTypes.string,
   text: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
 };

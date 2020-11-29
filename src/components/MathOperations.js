@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "./Button";
-import {} from "./Button";
 
-const MathOperations = ({ onclickOperation, onClickEqual }) => (
+const MathOperations = ({ onClickOperation, onClickEqual }) => (
   <section className="math-operations">
-    <Button text="+" clickHandler={onclickOperation} />
-    <Button text="-" clickHandler={onclickOperation} />
-    <Button text="*" clickHandler={onclickOperation} />
-    <Button text="=/" clickHandler={onclickOperation} />
+    <Button text="+" clickHandler={onClickOperation} />
+    <Button text="-" clickHandler={onClickOperation} />
+    <Button text="*" clickHandler={onClickOperation} />
+    <Button text="=" clickHandler={onClickEqual} />
   </section>
 );
 
 MathOperations.propTypes = {
-  onclickOperation: PropTypes.func.isRequired,
+  onClickOperation: PropTypes.func.isRequired,
   onClickEqual: PropTypes.func.isRequired,
 };
 

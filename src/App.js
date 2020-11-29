@@ -1,11 +1,11 @@
 import React from "react";
-import Result from "./components/Result";
 import Button from "./components/Button";
 import MathOperations from "./components/MathOperations";
+import Result from "./components/Result";
 import "./App.css";
 
 const App = () => {
-  const clickHandlerFunction = text => {
+  const clickHandlerFunction = (text) => {
     console.log("Button.clickHandler", text);
   };
 
@@ -28,14 +28,10 @@ const App = () => {
         <button>clear</button>
         <button>r</button>
       </div>
-      <div className="math-operations">
-        <button>+</button>
-        <button>-</button>
-        <button>*</button>
-        <button>/</button>
-        <button>=</button>
-      </div>
-      <MathOperations />
+      <MathOperations
+        onClickOperation={(operation) => console.log("Operation: ", operation)}
+        onClickEqual={(equal) => console.log("Equal: ", equal)}
+      />
     </main>
   );
 };
