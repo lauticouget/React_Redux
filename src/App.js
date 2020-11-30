@@ -16,11 +16,7 @@ const App = () => {
   return (
     <main className="react-calculator">
       <Result value={value} />
-      <Numbers
-        onClickNumber={(number) => {
-          setStack(`${stack}${number}`);
-        }}
-      />
+      <Numbers onClickNumber={(number) => setStack(`${stack}${number}`)} />
       <Functions
         onContentClear={() => setStack("")}
         onDelete={() => {
