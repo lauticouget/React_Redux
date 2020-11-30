@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./components/Button";
 import Functions from "./components/Functions";
 import Numbers from "./components/Numbers";
@@ -7,23 +7,28 @@ import Result from "./components/Result";
 import "./App.css";
 
 const App = () => {
-  const clickHandlerFunction = (text) => {
-    console.log("Button.clickHandler", text);
-  };
+  const [stack, setStack] = useState("");
 
   return (
     <main className="react-calculator">
-      <Result value={undefined} />
-      <Numbers onClickNumber={number => {
-        console.log("number:", number);
-      }}/>
+      <Result value={stack} />
+      <Numbers
+        onClickNumber={(number) => {
+          setStack(`${stack}${number}`);
+        }}
+      />
       <Functions
-        onContentClear={() => console.log("content clear")}
-        onDelete={() => console.log("on delete")}
+        onContentClear={() => setStack("")}
+        onDelete={() => {
+          if (stack.length > 0) {
+            const newStack = stack.substring(0, stack.length - 1);
+            setStack(newStack);
+          }
+        }}
       />
       <MathOperations
-        onClickOperation={(operation) => console.log("Operation: ", operation)}
-        onClickEqual={(equal) => console.log("Equal: ", equal)}
+        onClickOperation={(operation) => setStack(`${stack}${operation}`)}
+        onClickEqual={(equal) => setStack(eval(stack).toString())}
       />
     </main>
   );
